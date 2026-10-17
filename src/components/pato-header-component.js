@@ -27,6 +27,10 @@ export class PatoHeaderComponent extends AbstractComponent {
         for (const el of this.menuNodes) {
             el.style.zIndex = 999;
         }
+
+        for(const li of sectionClone.children) {
+            li.addEventListener('click', this.startAnimationBind);
+        }
     }
 
     getStyles() {
@@ -59,6 +63,10 @@ export class PatoHeaderComponent extends AbstractComponent {
                     margin-top: var(--header-height, 5rem);
                 }
 
+                a {
+                    text-decoration: none;
+                }
+
                 li,
                 ::slotted(li) {
                     border-bottom: var(--border, 1px solid hsl(0, 0%, 40%));
@@ -66,6 +74,7 @@ export class PatoHeaderComponent extends AbstractComponent {
                     margin: 0;
                     padding: 0;
                     width: 80%;
+                    font-size: 1.5rem;
                 }
                 
                 #sections {
@@ -221,14 +230,6 @@ export class PatoHeaderComponent extends AbstractComponent {
                         border: none;
                     }
 
-                    #menu {
-                        display: none;
-                    }
-                    
-                    .left, 
-                    .right {
-                        display: none;
-                    }
                 }
 
                 @media (min-width: 1500px) {

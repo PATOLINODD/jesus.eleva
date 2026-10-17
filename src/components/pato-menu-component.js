@@ -55,7 +55,6 @@ export class PatoMenuComponent extends AbstractComponent {
 
     render () {
         return this.html`
-            <style>${this.getStyles()}</style>
             <div class="menu">
                 <div class="top"></div>
                 <div class="x-animation">

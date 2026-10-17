@@ -29,6 +29,13 @@
 </head>
 
 <body class="ibm-plex-serif-thin">
+    <style>
+        pato-header {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+    </style>
     <pato-header>
         <img src="./assets/logos/je-oficial.svg" alt="JE" slot="logo" style="width: 5em; height: 5em;">
         <ul slot="sections">
@@ -1520,7 +1527,7 @@
                 font-size: 1.25rem;
             }
 
-            #contacts-section li {
+            #contacts-section li:not(.email) {
                 display: flex;
                 flex-direction: row-reverse;
                 gap: 1rem;
@@ -1557,6 +1564,18 @@
                 &:hover {
                     background-color: var(--primary-color);
                     color: var(--bg);
+                }
+            }
+
+            li.email {
+                display: none;
+            }
+
+            @media (min-width: 400px) {
+                #contacts-section li.email {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    gap: 1rem;
                 }
             }
 
@@ -1603,9 +1622,9 @@
                             </pato-word>
                             <img src="./assets/svgs/icons/youtube-icon.svg" alt="youtube">
                         </li>
-                        <li>
+                        <li class="email">
                             <pato-word>
-                                [EMAIL_ADDRESS]
+                                jesuscamaraacessoria@gmail.com
                             </pato-word>
                             <img src="./assets/svgs/icons/email-icon.svg" alt="email">
                         </li>
@@ -1682,11 +1701,19 @@
             padding: 0;
         }
 
-        footer li {
+        footer li:not(.email) {
             display: flex;
             justify-content: flex-start;
             align-items: flex-start;
             gap: 1rem;
+        }
+
+        @media (min-width: 400px) {
+            footer li.email {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+            }
         }
 
         footer pato-word::part(under) {
@@ -1774,10 +1801,10 @@
                             JCEleva
                         </pato-word>
                     </li>
-                    <li>
+                    <li class="email">
                         <img src="./assets/svgs/icons/email-icon.svg" alt="email">
                         <pato-word>
-                            [EMAIL_ADDRESS]
+                            jesuscamaraacessoria@gmail.com
                         </pato-word>
                     </li>
                     <li>
