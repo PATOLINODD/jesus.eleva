@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+    color: var(--text);
+    letter-spacing: -.1em;
+    word-spacing: .25em;
+}
+
+
+:root {
+    --bg-dark: hsl(0 0% 2%);
+    --bg: hsl(0 0% 7%);
+    --bg-light: hsl(0 0% 12%);
+
+    --primary-color: hsl(41 96% 54%);
+    --secondary-color: hsl(39 59% 30%);
+
+    --text: hsl(0 0% 95%);
+    --text-muted: hsl(0 0% 70%);
+    --placeholder: hsl(0 0% 50%);
+
+    --danger: hsl(0 70% 50%);
+    --warning: hsl(60 70% 50%);
+    --success: hsl(120 70% 50%);
+    --info: hsl(170 70% 50%);
+
+    --border-size: 1px;
+    --border-style: solid;
+    --border-color: hsl(0 0% 40%);
+    --circle: 50%;
+    --button-radius: 5rem;
+    --sm-radius: .5rem;
+    --card-radius: .5rem;
+    --border: var(--border-size) var(--border-style) var(--border-color);
+
+    --secondary-font: 'IBM Plex Serif', serif;
+    --primary-font: 'Source Serif Pro', serif;
+    --cta-font: 'Ancizar Serif', serif;
+
+    --thin-weight: 100;
+
+    interpolate-size: allow-keywords;
+}
+
+::selection {
+    color: var(--bg-dark);
+    background-color: hsl(41 96% 30% / 0.5);
+}
+
+a {
+    text-decoration: none;
+    width: 100%;
+    &:visited {
+        color: inherit;
+    }
+}
+
+pato-svg {
+    cursor: pointer;
+}
+
+.follow-btn {
+    width: 50%;
+}
+
+p {
+    color: var(--text-muted) !important;
+}

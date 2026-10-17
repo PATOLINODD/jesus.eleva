@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jesus Eleva</title>
+
+    <!-- LOAD FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+        rel="stylesheet">
+
+    <!-- LOAD CSS -->
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./styles/shared/flex.css">
+    <link rel="stylesheet" href="./styles/fonts/ancizar-serif.css">
+    <link rel="stylesheet" href="./styles/fonts/ibm-plex-serif.css">
+    <link rel="stylesheet" href="./styles/fonts/source-serif-pro.css">
+    <link rel="stylesheet" href="./pato-instagram-card.css">
+
+    <!-- LOAD COMPONENTS -->
+    <script type="module" src="./src/components/components.js"></script>
+    
+    <!-- LOAD CONTROLLERS -->
+    <script type="module" src="./src/controllers/button.js"></script>
+</head>
+
+<body class="ibm-plex-serif-thin">
+    <pato-header>
+        <img src="./assets/logos/je-oficial.svg" alt="JE" slot="logo" style="width: 5em; height: 5em;">
+        <ul slot="sections">
+            <li>
+                <a href="#hero-section">
+                    <pato-word>Inicio</pato-word>
+                </a>
+            </li>
+            <li>
+                <a href="#aboutme-section">
+                    <pato-word>Sobre Mim</pato-word>
+                </a>
+            </li>
+            <li>
+                <a href="#courses-section">
+                    <pato-word>Cursos</pato-word>
+                </a>
+            </li>
+            <li>
+                <a href="#testimonials-section">
+                    <pato-word>Depoimentos</pato-word>
+                </a>
+            </li>
+        </ul>
+        <button slot="cta" class="cta" data-link="https://wa.me/5511958310007?text=Ola%2C%20tudo%20bem%3F%20Estou%20pronto%20para%20a%20mentoria%20de%20lideran%C3%A7a%20conhecer%20meus%20erros%20e%20o%20que%20posso%20fazer%20para%20melhorar">Entrar em Contato</button>
+        <pato-menu slot="menu"></pato-menu>
+    </pato-header>
+    <style>
+        section, footer {
+            margin: 0 0;
+            padding: 0 2em;
+            padding-top: 4rem;
+            position: relative;
+            width: 100vw;
+        }
+        
+        #hero-section {
+            min-height: 47.3125em;
+            padding-top: 4rem;
+            background-image: url("./assets/imgs/bg/building-nobg.png");
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        #hero-section .headline {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .headline h1 {
+            font-size: 1.5rem;
+            text-align: center;
+            text-transform: capitalize;
+            line-height: 1.5rem;
+        }
+
+        .subheadline {
+            position: relative;
+            margin-bottom: 9em;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .subheadline p {
+            font-size: 1.2rem;
+            letter-spacing: 0.1rem;
+        }
+
+        main {
+            width: 100%;
+        }
+
+        .cta-out {
+            padding: .25em 2.5em;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all .3s ease-out;
+        }
+
+        .secondary-cta {
+            font-size: 1.5em;
+            color: var(--text);
+
+            &:hover {
+                color: var(--primary-color);
+            }
+        }
+
+        .main-cta {
+            background: transparent;
+            border: var(--border);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            border-radius: var(--button-radius);
+            width: 100%;
+
+            &:hover {
+                background-color: var(--primary-color);
+                color: var(--bg-dark);
+            }
+        }
+
+        #hero-section .dark-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: hsl(0 0% 0% / 0.9);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hidden-mobile {
+            display: none;
+        }
+
+        @media  (min-width: 748px) {
+            section, footer {
+                padding: 0 4rem;
+            }
+
+            #hero-section {
+                background-size: cover;
+            }
+
+            .headline h1 {
+                font-size: 3.5em;
+                line-height: .8em;
+                margin: 0;
+                padding: 0;
+                text-align: start;
+            }
+
+            p {
+                color: var(--text-muted);
+                font-size: 1.375em;
+                line-height: 2em;
+            }
+
+            h1,
+            p {
+                margin: 0;
+                padding: 0;
+                word-spacing: .25em;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .subheadline {
+                width: max-content;
+            }
+
+            .ctas-container {
+                flex-direction: row;
+            }
+
+            .ctas-container * {
+                width: max-content;
+            }
+
+            .je-standing {
+                display: block;
+                position: absolute; 
+                bottom: 0; 
+                right: 0rem;
+                width: 22em;
+                z-index: 2;
+            }
+        }
+
+        @media (min-width: 1260px) {
+            section, footer {
+                padding: 0 9rem;
+            }
+
+            #hero-section {
+                background: transparent;
+            }
+
+            #hero-section .dark-layer {
+                display: none;
+            }
+
+            .hidden-mobile {
+                display: block;
+            }
+
+            .success-bg {
+                position: absolute;
+                top: 7em;
+                right: 0; 
+                pointer-events: none;
+                z-index: 0;
+                opacity: 0.25;
+            }
+
+            .je-standing {
+                position: absolute; 
+                bottom: 0; 
+                right: 2rem; 
+                width: 22em;
+            }
+
+            .ctas-container {
+                flex-direction: row;
+            }
+
+            .ctas-container * {
+                width: max-content;
+            }
+
+            #hero-section p {
+                font-size: 1.5rem;
+            }
+
+            .headline h1 {
+                font-size: 4em;
+            }
+
+            .subheadline {
+                width: max-content;
+                margin: 0;
+                margin-bottom: 9rem;
+            }
+        }
+
+        @media (min-width: 1500px) {
+            section, footer {
+                padding: 0 15rem;
+            }
+        }
+
+        @media (min-width: 1700px) {
+            .je-standing {
+                right: 10rem;
+            }
+        }
+        @media (min-width: 1900px) {
+            .je-standing {
+                right: 20rem;
+            }
+        }
+    </style>
+    <main class="flex justify-center aling-center col">
+        <img class="hidden-mobile success-bg" src="./assets/imgs/bg/HERO/SUCESSO.png" alt="">
+        <section id="hero-section" class="flex justify-between align-start col">
+            <div class="dark-layer"></div>
+            <img class="hidden-mobile je-standing" src="./assets/imgs/je/standing-nobg-adobe.png" alt="">
+            <div class="headline">
+                <h1 class="source-serif-4-thin">Crescimento profissional não é sorte,</h1>
+                <h1 class="source-serif-4-thin">é comportamento.</h1>
+            </div>
+            <div class="subheadline flex justify-center align-center col gap-8">
+                <div>
+                    <p>Aprenda Liderança, carreira e educação financeira de forma</p>
+                    <p>prática e sem teoria vazia.</p>
+                </div>
+                <div class="ctas-container flex col justify-between align-center gap-8" style="width: 100%;">
+                    <pato-word class="ancizar-serif-regular secondary-cta">Ver Conteúdos</pato-word>
+                    <button class="ancizar-serif-regular cta-out main-cta" data-link="https://wa.me/5511958310007?text=Ola%2C%20tudo%20bem%3F%20Estou%20pronto%20para%20a%20mentoria%20de%20lideran%C3%A7a%20conhecer%20meus%20erros%20e%20o%20que%20posso%20fazer%20para%20melhorar">Entrar Em Contato</button>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            #aboutme-section {
+                min-height: 40em;
+            }
+
+            #aboutme-section .img-container {
+                position: relative;
+                pointer-events: none;
+                width: 100%;
+                height: 100%;
+            }
+
+            #aboutme-section .je,
+            #aboutme-section .triangle-logo {
+                width: 100%;
+            }
+
+            #aboutme-section .triangle-logo {
+                position: absolute;
+                bottom: 8rem;
+                left: -3rem;
+                transform: scale(1.2);
+                z-index: -1;
+                pointer-events: none;
+            }
+
+            #aboutme-section p {
+                text-wrap: wrap;
+                font-size: 1em;
+                letter-spacing: .05em;
+                line-height: 1.75em;
+            }
+
+            #aboutme-section .brief-desc {
+                width: 100%;
+                height: 100%;
+            }
+
+            .brief-desc button,
+            .contact {
+                width: 100%;
+                padding: 1em;
+                border: 1px solid var(--text);
+                border-radius: var(--button-radius);
+                color: var(--text);
+                background-color: transparent;
+                letter-spacing: .125em;
+                transition: all .3s ease-out;
+                cursor: pointer;
+                font-size: 1em;
+            }
+            
+            .brief-desc button:hover {
+                border-color: var(--primary-color);
+                color: var(--primary-color);
+            }
+
+            @media (min-width: 375px) {
+                #aboutme-section .triangle-logo {
+                    bottom: 10rem;
+                    left: -5rem;
+                }
+            }
+
+            @media (min-width: 768px) {
+                #aboutme-section .triangle-logo,
+                #aboutme-section .je {
+                    width: 70%;
+                }
+                #aboutme-section .triangle-logo {
+                    bottom: 15rem;
+                    left: -8rem;
+                    transform: scale(1.4);
+                }
+                 #aboutme-section p {
+                    font-size: 1.5rem;
+                }
+            }
+
+            @media (min-width: 1024px) {
+                #aboutme-section {
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                #aboutme-section .triangle-logo,
+                #aboutme-section .je {
+                    width: 50%;
+                }
+
+                #aboutme-section .je {
+                    position: relative;
+                    transform: scale(1.5);
+                    left: 5rem;
+                }
+
+                #aboutme-section .triangle-logo {
+                    transform: scale(2);
+                    bottom: 8rem;
+                    left: -1rem;
+                }
+            }
+
+            @media (min-width: 1440px) {
+                #aboutme-section .triangle-logo {
+                    transform: scale(2.2);
+                    bottom: 10rem;
+                    left: -3rem;
+                }
+            }
+        </style>
+        <section id="aboutme-section" class="flex col justify-between align-start">
+            <div class="img-container">
+                <img class="je" src="./assets/imgs/je/standing-nobg-adobe.png">
+                <img class="triangle-logo" src="./assets/logos/triangle-transparent-bg.png" alt="" srcset="./assets/logos/triangle-transparent-bg.png">
+            </div>
+            <div class="brief-desc flex col gap-10">
+                <p>
+                    Com mais de 8 anos de experiência no 
+                    ambiente corporativo, atuando em gestão de equipes 
+                    e resultados, Jesus Câmara compartilha 
+                    aprendizados reais de quem vive o dia a dia da liderança.
+                </p>
+                <button class="ancizar-serif-light" data-link="https://wa.me/5511958310007?text=Ola%2C%20tudo%20bem%3F%20Estou%20pronto%20para%20a%20mentoria%20de%20lideran%C3%A7a%20conhecer%20meus%20erros%20e%20o%20que%20posso%20fazer%20para%20melhorar">Conhecer Jesus</button>
+            </div>
+        </section>
+        <style>
+            #problem-section {
+                margin: 0;
+                padding: 2rem;
+            }
+
+            #problem-section .working-night {
+                width: 100%;
+            }
+
+            #problem-section .desc {
+                width: 100%;
+            }
+
+            #problem-section p {
+                font-size: 1.25rem;
+                text-align: center;
+                letter-spacing: 0.1rem;
+            }
+
+            #problem-section h1 {
+                font-size: 1.75rem;
+                text-align: center;
+            }
+
+            @media (min-width: 768px) {
+                #problem-section p {
+                    font-size: 1.5rem;
+                    line-height: 2rem;
+                }
+
+                #problem-section h1 {
+                    font-size: 3rem;
+                }
+            }
+
+            @media (min-width: 1024px) {
+                #problem-section .working-night {
+                    width: 50%;
+                }
+            }
+
+            @media (min-width: 1440px) {
+                #problem-section {
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: flex-start;
+                }
+
+                #problem-section p,
+                #problem-section h1 {
+                    text-align: start;
+                }
+
+                #problem-section h1 {
+                    font-size: 3rem;
+                }
+
+                #problem-section .container-desc {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            @media (min-width: 1500px) {
+                #problem-section {
+                    padding: 4rem 15rem;
+                    width: 100%;
+                }
+
+                #problem-section .container-desc {
+                    height: 100%;
+                    width: 100%;
+                }
+                
+                #problem-section h1 {
+                    text-align: center;
+                    font-size: 3rem;
+                }
+            }
+
+            @media (min-width: 1700px) {
+                #problem-section {
+                    justify-content: center;
+                }
+
+                #problem-section .working-night {
+                    width: 40%;
+                }
+                #problem-section .container-desc {
+                    height: 100%;
+                    width: max-content;
+                }
+                #problem-section h1 {
+                    text-align: start;
+                }
+            }
+
+        </style>
+        <section id="problem-section" class="flex justify-center align-center col gap-8">
+            <img class="working-night" src="./assets/imgs/working-night.jpg" alt="">
+            <div class="container-desc flex col justify-between align-start gap-8">
+                <div class="desc">
+                    <p>Você trabalha, se esforça, bate meta.</p>
+                    <p>Mas sua vida não evolui na mesma velocidade.</p>
+                    <p>Cumpre metas da empresa</p>
+                </div>
+                <div class="desc">
+                    <h1>MAS NÃO CUMPRE AS SUAS?</h1>
+                </div>
+            </div>
+        </section>
+
+
+        <style>
+            #solution-section {
+                background-image: linear-gradient(30deg, var(--secondary-color), var(--primary-color), var(--primary-color));
+                min-height: 47rem;
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+                color: var(--bg);
+                margin: 0;
+            }
+
+            #solution-section ul, #solution-section li {
+                list-style: none;
+                font-size: 1rem;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                text-align: end;
+            }
+
+            #solution-section .img-container {
+                width: 100%;
+                height: 100%;
+                background: url("./assets/imgs/je/oncomputer_with_brand_shape.jpg");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            #solution-section .content {
+                margin-top: 4rem;
+                width: 100%;
+                height: 30rem;
+            }
+
+            #solution-section .desc {
+                font-size: 1.5em;
+            }
+
+            #solution-section .checklist {
+                height: 100%;
+                width: 100%;
+            }
+
+            #solution-section button:hover {
+                border-color: var(--primary-color);
+                color: var(--primary-color);
+                background-color: var(--bg-dark);
+            }
+
+            #solution-section .text {
+                color: var(--bg-dark);
+                text-transform: uppercase;
+                word-spacing: 1rem;
+                text-align: center;
+                width: 100%;
+            }
+
+            @media (min-width: 768px) {
+                 #solution-section .img-container {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                #solution-section .content {
+                    flex-direction: row;
+                    width: 100%;
+                }
+
+                #solution-section .checklist {
+                    justify-content: flex-end;
+                }
+
+                #solution-section ul, #solution-section li {
+                    font-size: 1.25rem;
+                }
+                #solution-section li > div {
+                    transform: translateX(-0.5rem) scale(1.2);
+                }
+            }
+
+            @media (min-width: 1024px ) {
+                #solution-section ul, #solution-section li {
+                    font-size: 1.5rem;
+                    transform: scale(1);
+                }
+
+                #solution-section ul {
+                    gap: 2rem;
+                }
+            }
+
+            @media (min-width: 2560px) {
+                #solution-section ul, #solution-section li {
+                    font-size: 2rem;
+                    transform: translateX(-2rem);
+                }
+            }
+        </style>
+        <section id="solution-section" class="flex col justify-between align-center">
+            <div class="section-description">
+                <div class="text ibm-plex-serif-extralight">
+                    Aqui você aprende o que realmente faz diferença no crescimento profissional.
+                </div>
+            </div>
+            <div class="content flex col-reverse justify-center align-center gap-4">
+                <div class="checklist flex justify-center align-end col gap-9">
+                    <ul class="ibm-plex-serif-regular flex col">
+                        <li class="flex justify-end align-center gap-5 ibm-plex-serif-regular"><div>Liderança na Prática</div> <img width="40" height="40" src="./assets/svgs/checkboxmarked.svg"></li>
+                        <li class="flex justify-end align-center gap-5 ibm-plex-serif-regular"><div> Comportamento no Trabalho</div><img width="40" height="40" src="./assets/svgs/checkboxmarked.svg"></li>
+                        <li class="flex justify-end align-center gap-5 ibm-plex-serif-regular"><div> Disciplina Financeira</div><img width="40" height="40" src="./assets/svgs/checkboxmarked.svg"></li>
+                        <li class="flex justify-end align-center gap-5 ibm-plex-serif-regular"><div> Posicionamento Profissional</div><img width="40" height="40" src="./assets/svgs/checkboxmarked.svg"></li>
+                    </ul>
+                    <button class="contact ancizar-serif-light"> Entrar Em Contato</button> 
+                </div>
+                <div class="img-container"></div>
+            </div>
+        </section>
+
+
+        <style>
+            #courses-section {
+                width: 100%;
+                min-height: 75.75em;
+                position: relative;
+            }
+
+            #courses-section #courses-bg {
+                background-image: url('./assets/imgs/bg/vertical-shot-modern-stairway-beautiful-white-building.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -3;
+                pointer-events: none;
+                
+            }
+
+            #courses-section .filter-black {
+                background-color: hsl(0 0% 0% / .8);
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                pointer-events: none;
+            }
+
+            #courses-section .filter-yellow {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -2;
+                pointer-events: none;
+                background-color: hsl(41 96% 20% / .5);
+            }
+
+            /* Container styles (The card) */
+            .pato-accordion {
+                width: 100%;
+                max-width: 100%; /* Optional: sets a maximum width */
+                overflow: hidden; /* Important for rounded corners on content */
+                font-size: 1.25em;
+            }
+
+            /* Remove default browser disclosure triangle on all summaries */
+            summary::-webkit-details-marker {
+                display: none;
+            }
+            summary {
+                list-style: none; /* For other browsers */
+            }
+
+            /* --- Accordion Item Separator Lines --- */
+            .accordion-item:not(:last-child) {
+                border-bottom: 1px solid #eee;
+            }
+
+            /* --- Accordion Header (Summary) --- */
+            .accordion-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                padding: 1.5em 0.5em;
+                color: var(--text);
+            }
+
+            /* 2. Target the native internal wrapper of the <details> element */
+            .accordion-item::details-content {
+                height: 0;
+                opacity: 0;
+                overflow: hidden;
+                /* allow-discrete is required to animate the browser's native visibility toggling */
+                transition: height 0.3s ease-out, opacity 0.3s ease-out, content-visibility 0.3s allow-discrete;
+            }
+
+            /* 3. Define the open state of the native wrapper */
+            .accordion-item[open]::details-content {
+                height: auto;
+                opacity: 1;
+            }
+
+            /* 4. Simplify your custom content wrapper to only handle padding */
+            .accordion-content {
+                padding: 0 1.5em 1.5em;
+            }
+
+            .accordion-item[open] .accordion-content {
+                padding: 1em 1.5em 2.5em;
+            }
+
+            /* Special thick solid line BELOW the open header and ABOVE the list */
+            .accordion-item[open] .accordion-header {
+                border-bottom: 2px solid #ddd;
+                padding: 1.5em 0.5em 1em; /* Adjust header padding when open */
+            }
+
+            /* Sub-items (List) Styling */
+            .accordion-content ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                overflow: hidden; 
+            }
+
+            .accordion-content ul li {
+                padding: 0.7em 0;
+                color: var(--text-muted);
+                display: flex;
+                align-items: center;
+            }
+
+            /* Final solid separator at the bottom of the list when open */
+            .accordion-content ul li:last-child {
+                padding-bottom: 1.5em;
+            }
+
+            /* --- Large Chevron Arrow on the Right --- */
+            .accordion-header::after {
+                content: '';
+                width: 0.6em;
+                height: 0.6em;
+                border-top: 2px solid #ccc;
+                border-right: 2px solid #ccc;
+                transform: rotate(45deg); /* Points to the right (>) */
+                transition: transform 0.3s ease-out;
+                margin-left: 1.5em;
+            }
+
+            /* Chevron points DOWN when accordion is open ([open]) */
+            .accordion-item[open] .accordion-header::after {
+                transform: rotate(135deg); /* Points down (V) */
+            }
+
+            .accordion-header:hover {
+                color: var(--primary-color);
+            }   
+
+            .accordion-header:hover::before {
+                border-top-color: var(--primary-color);
+                border-right-color: var(--primary-color);
+            }
+
+            /* 3. Change the right chevron arrow color on hover */
+            .accordion-header:hover::after {
+                border-top-color: var(--primary-color);
+                border-right-color: var(--primary-color);
+            }
+
+            /* 4. Change the thin separator line of the item on hover */
+            .accordion-item:hover {
+                border-bottom-color: var(--primary-color);
+            }
+
+            /* 5. Change the thicker border below the header when the item is both open and hovered */
+            .accordion-item[open]:hover .accordion-header {
+                border-bottom-color: var(--primary-color);
+            }
+
+            /* Optional: Add a transition to make the color change smooth */
+            .accordion-header,
+            .accordion-header::before,
+            .accordion-header::after,
+            .accordion-item,
+            .accordion-item[open] .accordion-header {
+                transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            }
+
+
+
+
+            /* Core Card Styling */
+            .course-card {
+                max-width: 370px;
+                background-color: #050505;
+                display: flex;
+                flex-direction: column;
+                /* Utilizing a serif font stack to match the elegant typography in the image */
+                border-radius: var(--card-radius);
+                overflow: hidden;
+                transition: transform  .3s ease-out;
+                &:hover {
+                    transform: translateY(-5px);
+                }
+            }
+
+            /* Placeholder Image Area (CSS Checkerboard Pattern) */
+            .image-book,
+            .image-course,
+            .image-mentorship {
+                height: 280px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .image-mentorship {
+                background-image: url('./assets/imgs/Mentorship.png');
+            }
+
+            .image-course {
+                background-image: url('./assets/imgs/course.png');
+            }
+
+            .image-book {
+                background-image: url('./assets/imgs/book.png');
+            }
+
+            /* Content Container */
+            .card-content {
+                padding: 24px 20px 32px 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            /* Typography */
+            .course-title {
+                color: var(--text);
+                font-size: 2.125rem;
+                font-weight: 300;
+                margin: 0 0 16px 0;
+                letter-spacing: 0.5px;
+            }
+
+            .course-description {
+                color: var(--text-muted);
+                font-size: 1rem;
+                margin: 0 0 64px 0;
+                line-height: 1.25rem;
+                letter-spacing: .025rem;
+            }
+
+            /* Action Button */
+            #courses-section .contact {
+                background-color: var(--secondary-color); /* Golden-brown tone matching the design */
+                color: var(--bg-dark);
+                border: none;
+                padding: 0.25rem;
+                cursor: pointer;
+                font-size: 1.5em;
+                transition: all 0.2s ease;
+                letter-spacing: 0%;
+            }
+
+            #courses-section .contact:hover {
+                background-color: var(--primary-color);
+                transform: scale(1.02) translateY(-2px);
+            }
+
+            .section-description {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 2rem;
+                gap: 1.5rem;
+            }
+            
+            .section-description .section-title {
+                font-size: 1.5rem;
+                color: var(--text-muted);
+                text-align: center;
+            }
+
+            .section-description .text {
+                font-size: 1.5rem;
+                color: var(--text);
+                text-align: center;
+            }
+
+            .section-description .text-muted {
+                font-size: 1.25rem;
+                color: var(--text-muted);
+                text-align: center;
+                letter-spacing: 5%;
+            }
+
+            #courses-section .cards {
+                padding: 2.5rem 0;
+            }
+
+            .popular {
+                border: 1px solid var(--text);
+                box-shadow: 0 0 10px var(--primary-color);
+            }
+
+            @media (min-width: 768px) {
+                .pato-accordion {
+                    font-size: 2.25em;
+                }
+
+                #courses-section .cards {
+                    width: 100%;
+                    flex-direction: column-reverse;
+                    flex-wrap: wrap;
+                }
+
+                #courses-section .course-card {
+                    width: 100%;
+                    flex-direction: column;
+                }
+
+                .image-book,
+                .image-course,
+                .image-mentorship {
+                    width: 100%;
+                }
+                
+                .image-book,
+                .image-course,
+                .image-mentorship {
+                    height: 300px;
+                }
+            }
+
+            @media (min-width: 1260px ) {
+                #courses-section .cards {
+                    flex-direction: row-reverse;
+                }
+
+                #courses-section .course-card {
+                    width: 370px;
+                    flex-direction: column;
+                }
+            }
+
+            @media (min-width: 1654px) {
+                #courses-section .cards {
+                    flex-direction: row-reverse;
+                    width: 100%;
+                }
+            }
+
+        </style>
+        <section id="courses-section">
+            <div id="courses-bg"></div>
+            <div class="filter-black"></div>
+
+            <div class="section-description">
+
+                <div class="section-title ibm-plex-serif-thin">Cursos</div>
+                <div>
+                    <div class="text ibm-plex-serif-regular">VOCÊ NÃO PRECISA TRABALHAR MAIS. PRECISA SE POSICIONAR MELHOR.</div>
+                    <div class="text-muted ibm-plex-serif-extralight">“Você bate meta pra empresa. E a sua?”</div>
+                </div>
+            </div>
+
+
+            <div class="filter-yellow"></div>
+            <div class="cards flex col-reverse justify-center align-center wrap gap-9">
+                <div class="course-card">
+                    <div class="image-book"></div>
+                    <div class="card-content">
+                        <div class="flex col justify-between align-start gap-2">
+                            <h1 class="course-title source-serif-4-extralight">Livro</h1>
+                            <p class="course-description ibm-plex-serif-extralight">
+                                Se esta é sua primeira experiência como gestor, este livro foi feito para você.
+                            </p>
+                        </div>
+                        <button class="contact ancizar-serif-light" data-link="https://hotmart.com/pt-br/marketplace/produtos/hagsxd-lider-pela-primeira-vez-f0t3w/K107392074P?sck=HOTMART_PRODUCT_PAGE">
+                            R$19,99
+                        </button>
+                    </div>
+                </div>
+                <div class="course-card popular">
+                    <div class="image-course"></div>
+                    <div class="card-content">
+                        <div class="flex col justify-between align-start gap-2">
+                            <h1 class="course-title source-serif-4-extralight">Curso</h1>
+                            <p class="course-description ibm-plex-serif-extralight">
+                                Os primeiros passos para transformar uma nova posição em uma verdadeira liderança.
+                            </p>
+                        </div>
+                        <button class="contact ancizar-serif-light" data-link="https://hotmart.com/pt-br/marketplace/produtos/hagsxd-lider-pela-primeira-vez-z040l/S107228828B?sck=HOTMART_PRODUCT_PAGE">
+                            R$97,99
+                        </button>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="image-mentorship"></div>
+                    <div class="card-content">
+                        <div class="flex col justify-between align-start gap-2">
+                            <h1 class="course-title source-serif-4-extralight">Mentoria Particular</h1>
+                            <p class="course-description ibm-plex-serif-extralight">
+                                Vendas e gestão comercial para empresas
+                            </p>
+                        </div>
+                        <button class="contact ancizar-serif-light" data-link="https://wa.me/5511958310007?text=Ola%2C%20tudo%20bem%3F%20Estou%20pronto%20para%20a%20mentoria%20de%20lideran%C3%A7a%20conhecer%20meus%20erros%20e%20o%20que%20posso%20fazer%20para%20melhorar">R$999</button>
+                    </div>
+                </div>
+            </div>
+            <div class="pato-accordion">
+                <!-- Item 1 (Closed) -->
+                <details class="accordion-item">
+                    <summary class="accordion-header ibm-plex-serif-extralight">
+                        O QUE VOCÊ VAI APRENDER
+                    </summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>
+                                <pato-word class="ibm-plex-serif-thin">Como se posicionar no trabalho</pato-word>
+                            </li>
+                            <li>
+                                <pato-word class="ibm-plex-serif-thin">Como lidar com pressão e metas</pato-word>
+                            </li>
+                            <li>
+                                <pato-word class="ibm-plex-serif-thin">Como desenvolver mentalidade profissional</pato-word>
+                            </li>
+                            <li>
+                                <pato-word class="ibm-plex-serif-thin">Identificar seus erros</pato-word>
+                            </li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- Item 3 (Closed) -->
+                <details class="accordion-item">
+                    <summary class="accordion-header ibm-plex-serif-extralight">
+                        PARA QUEM É
+                    </summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>
+                                <pato-word class="ibm-plex-serif-thin">Quem sente que está estagnado</pato-word>
+                            </li>
+                            <li>
+                                <pato-word class="ibm-plex-serif-thin">Quem quer crescer na empresa</pato-word>
+                            </li>
+                            <li>
+                                <pato-word class="ibm-plex-serif-thin">Quem quer se tornar líder</pato-word>
+                            </li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- Item 5 (Closed) -->
+                <details class="accordion-item"> 
+                    <summary class="accordion-header ibm-plex-serif-extralight">
+                        PARA QUEM NÃO É
+                    </summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>
+                                <pato-word class="ibm-plex-serif-thin"> Quem busca motivação fácil</pato-word>
+                            </li>
+                            <li>
+                                <pato-word class="ibm-plex-serif-thin">Quem não quer mudar comportamento</pato-word>
+                            </li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <div></div>
+        </section>
+
+        <style>
+            #social-contents {
+                width: 100%;
+                min-height: 47.3125rem;
+                background-color: var(--bg-dark);
+                padding-bottom: 4rem;
+                padding-top: 4rem;
+            }
+        </style>
+        <section id="social-contents" class="flex justify-between col gap-8">
+            <div class="section-description">
+
+                <div class="section-title ibm-plex-serif-thin">Conteudos</div>
+                <div>
+                    <div class="text ibm-plex-serif-regular">CONTEUDOS PARA QUEM QUER CRESCER DE VERDADE</div>
+                    <div class="text-muted ibm-plex-serif-extralight">Aqui você encontra vídeos e insights sobre liderança, carreira e comportamento profissional.</div>
+                </div>
+            </div>
+            <div class="insta-container flex wrap justify-center align-center gap-9" style="position: relative; z-index: 1;">
+                <pato-frame src="https://www.instagram.com/p/DXpw_W6j8Kp/embed" width="347px" height="522px">
+                    <pato-instagram-btn data-profile-link="jesus.eleva"></pato-instagram-btn>
+                    <pato-sidebar>
+                        <pato-svg name="heart" color="hsl(0 100% 59% / 1)" animate-on-click></pato-svg>
+                        <pato-svg name="comment" stroke="hsl(0 0% 95%)"></pato-svg>
+                        <pato-svg name="repost" stroke="hsl(0 0% 95%)"></pato-svg>
+                        <pato-svg name="share" stroke="hsl(0 0% 95%)"></pato-svg>
+                        <pato-svg name="save" stroke="hsl(0 0% 95%)"></pato-svg>
+                    </pato-sidebar>
+                    <pato-bottom-bar>
+                    <pato-avatar-ring size="3.125em">
+                        <pato-avatar image-url="./assets/imgs/je/closeface.jpeg"></pato-avatar>
+                    </pato-avatar-ring>
+                    <span class="username">jesus.eleva</span>
+                    <button class="follow-btn">Seguir</button>
+                    </pato-bottom-bar>
+                </pato-frame>
+                <pato-frame src="https://www.instagram.com/p/DXQAKjCjwoN/embed" width="347px" height="522px">
+                    <pato-instagram-btn data-profile-link="jesus.eleva"></pato-instagram-btn>
+                    <pato-sidebar>
+                        <pato-svg name="heart" color="hsl(0 100% 59% / 1)" animate-on-click></pato-svg>
+                        <pato-svg name="comment" stroke="hsl(0 0% 95%)"></pato-svg>
+                        <pato-svg name="repost" stroke="hsl(0 0% 95%)"></pato-svg>
+                        <pato-svg name="share" stroke="hsl(0 0% 95%)"></pato-svg>
+                        <pato-svg name="save" stroke="hsl(0 0% 95%)"></pato-svg>
+                    </pato-sidebar>
+                    <pato-bottom-bar>
+                    <pato-avatar-ring size="3.125em">
+                        <pato-avatar image-url="./assets/imgs/je/closeface.jpeg"></pato-avatar>
+                    </pato-avatar-ring>
+                    <span class="username">jesus.eleva</span>
+                    <button class="follow-btn">Seguir</button>
+                    </pato-bottom-bar>
+                </pato-frame>
+                <pato-frame src="https://www.instagram.com/p/DXRwLEekeKu/embed" width="347px" height="522px">
+                    <pato-instagram-btn data-profile-link="jesus.eleva"></pato-instagram-btn>
+                    <pato-sidebar>
+                        <pato-svg name="heart" color="hsl(0 100% 59% / 1)" animate-on-click></pato-svg>
+                        <pato-svg name="comment" stroke="hsl(0 0% 95%)"></pato-svg>
+                        <pato-svg name="repost" stroke="hsl(0 0% 95%)"></pato-svg>
+                        <pato-svg name="share" stroke="hsl(0 0% 95%)"></pato-svg>
+                        <pato-svg name="save" stroke="hsl(0 0% 95%)"></pato-svg>
+                    </pato-sidebar>
+                    <pato-bottom-bar>
+                    <pato-avatar-ring size="3.125em">
+                        <pato-avatar image-url="./assets/imgs/je/closeface.jpeg"></pato-avatar>
+                    </pato-avatar-ring>
+                    <span class="username">jesus.eleva</span>
+                    <button class="follow-btn">Seguir</button>
+                    </pato-bottom-bar>
+                </pato-frame>
+            </div>
+        </section>
+
+        <style>
+
+            #youtube-section {
+                min-height: 47.3125rem;
+                background-color: var(--bg-dark);
+                position: relative;
+            }
+            /* Core Component Styling - Now Fluid */
+            custom-video-player {
+                display: block;
+                position: relative;
+                width: 100%;
+                max-width: 900px;
+                overflow: hidden;
+            }
+
+            /* We apply the video-screen class to the YouTube container */
+            .video-screen {
+                width: 100%;
+                height: auto;
+                display: block;
+                aspect-ratio: 16 / 9;
+                /* pointer-events: none; Prevents users from clicking the video directly to pause, forcing use of custom controls */
+            }
+
+            /* Control Bar Container */
+            .video-controls {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 10px 15px;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                box-sizing: border-box;
+            }
+
+            custom-video-player:hover .video-controls,
+            custom-video-player:focus-within .video-controls {
+                opacity: 1;
+            }
+
+            .progress-container {
+                width: 100%;
+                height: 5px;
+                background-color: rgba(255, 255, 255, 0.3);
+                cursor: pointer;
+                position: relative;
+                transition: height 0.1s ease;
+            }
+
+            .progress-container:hover {
+                height: 8px;
+            }
+
+            .progress-filled {
+                width: 0%; /* Starts at 0% */
+                height: 100%;
+                background-color: #ff0000;
+                position: relative;
+            }
+
+            .progress-filled::after {
+                content: '';
+                position: absolute;
+                right: -6px;
+                top: 50%;
+                transform: translateY(-50%) scale(0);
+                width: 12px;
+                height: 12px;
+                background-color: #ff0000;
+                border-radius: 50%;
+                transition: transform 0.1s ease;
+            }
+
+            .progress-container:hover .progress-filled::after {
+                transform: translateY(-50%) scale(1);
+            }
+
+            .control-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .control-group {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .control-btn {
+                background: none;
+                border: none;
+                color: #ffffff;
+                cursor: pointer;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0.9;
+                transition: opacity 0.2s ease;
+            }
+
+            .control-btn:hover {
+                opacity: 1;
+            }
+
+            .control-btn svg {
+                width: 24px;
+                height: 24px;
+                fill: currentColor;
+            }
+
+            .time-display {
+                color: #ffffff;
+                font-size: 13px;
+                user-select: none;
+                white-space: nowrap;
+            }
+
+            .time-display span {
+                opacity: 0.8;
+            }
+
+            #youtube-section .triangle-bg{
+                position: absolute;
+                top: -70%;
+                left: -22%;
+                z-index: 0;
+                transform: rotate(180deg) scale(0.65);
+                opacity: 0.5;
+            }
+        </style>
+
+        <section id="youtube-section" class="flex justify-center align-center">
+            <!-- <img class="triangle-bg" src="./assets/logos/triangle-transparent-bg.png" alt=""> -->
+            <custom-video-player>
+                <!-- This empty div will be dynamically replaced by the YouTube IFrame -->
+                <div id="youtube-player-container" class="video-screen"></div>
+
+                <div class="video-controls">
+                <div class="progress-container">
+                    <div class="progress-filled" id="progress-bar"></div>
+                </div>
+
+                <div class="control-row">
+                    <div class="control-group">
+                    <button class="control-btn" id="play-pause-btn" aria-label="Play">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </button>
+                    
+                    <button class="control-btn" aria-label="Volume">
+                        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                    </button>
+
+                    <div class="time-display">
+                        <span id="current-time">0:00</span> <span id="total-time">/ 0:00</span>
+                    </div>
+                    </div>
+
+                    <div class="control-group">
+                    <button class="control-btn" aria-label="Fullscreen">
+                        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                    </button>
+                    </div>
+                </div>
+                </div>
+            </custom-video-player>
+
+            <!-- JavaScript to load and control the YouTube API -->
+            <script>
+                // 1. Asynchronously load the YouTube IFrame Player API code
+                var tag = document.createElement('script');
+                tag.src = "https://www.youtube.com/iframe_api";
+                var firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                // 2. Define the player variable
+                var player;
+
+                // 3. This function executes automatically once the API downloads
+                function onYouTubeIframeAPIReady() {
+                    player = new YT.Player('youtube-player-container', {
+                        videoId: 'etEx-bddAMw', // Replace this ID with your desired YouTube video ID
+                        playerVars: {
+                        'controls': 0,       // Crucial: Hides the native YouTube controls
+                        'disablekb': 1,      // Disables keyboard controls
+                        'modestbranding': 1, // Removes the large YouTube logo
+                        'rel': 0,            // Prevents related videos from external channels
+                        'playsinline': 1     // Ensures proper playback on mobile devices
+                        },
+                        events: {
+                        'onReady': onPlayerReady
+                        }
+                    });
+                }
+
+                // 4. Wire the custom HTML buttons to the API once the player is ready
+                function onPlayerReady(event) {
+                const playPauseBtn = document.getElementById('play-pause-btn');
+                let isPlaying = false;
+
+                playPauseBtn.addEventListener('click', function() {
+                    if (isPlaying) {
+                        player.pauseVideo();
+                        // Change icon to Play
+                        playPauseBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+                    } else {
+                        player.playVideo();
+                        // Change icon to Pause
+                        playPauseBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+                    }
+                    isPlaying = !isPlaying;
+                });
+                }
+            </script>
+        </section>
+
+        <style>
+
+            #testimonials-section {
+                min-height: 47.83125rem;
+                padding-top: 1rem;
+                background-color: var(--bg-dark);
+            }
+
+            #testimonials-section .left, #testimonials-section .right {
+                min-width: 100%;
+                height: 100%;
+                display: flex;
+                gap: 1rem;
+                will-change: transform;
+            }
+
+            /* #testimonials-section .left {
+                background-color: yellow;
+            }
+            #testimonials-section .right {
+                background-color: green;
+            } */
+
+            #testimonials-section .cards-container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 1rem;
+                overflow: hidden;
+                mask-image: linear-gradient(90deg, transparent, 000 20%, 000 80%, transparent);
+            }
+            
+            .left {
+                animation: slide-to-left 10s linear infinite;
+                height: max-content;
+                margin: 0;
+                padding: 0;
+            }
+
+            .right {
+                transform: translateX(-50%);
+                animation: slide-to-right 10s linear infinite;
+                height: max-content;
+                margin: 0;
+                padding: 0;
+            }
+
+            @keyframes slide-to-left { 
+                to { 
+                    transform: translateX(-50%);
+                } 
+            }
+
+            @keyframes slide-to-right { 
+                to { 
+                    transform: translateX(0%);
+                } 
+            }
+        </style>
+
+        <section id="testimonials-section">
+            <div class="section-description">
+                <div class="section-title ibm-plex-serif-thin">Depoimentos</div>
+                <div>
+                    <div class="text ibm-plex-serif-extralight">“Liderança não é sobre agradar. É sobre responsabilidade”</div>
+                </div>
+            </div>
+
+            <div class="cards-container">
+                <div class="left">
+                    <pato-testimonial-card></pato-testimonial-card>
+                    <pato-testimonial-card></pato-testimonial-card>
+                    <pato-testimonial-card></pato-testimonial-card>
+                    <pato-testimonial-card></pato-testimonial-card>
+                    <pato-testimonial-card></pato-testimonial-card>
+                    <pato-testimonial-card></pato-testimonial-card>
+                </div>
+                <div class="right">
+                    <pato-testimonial-card></pato-testimonial-card>
+                    <pato-testimonial-card></pato-testimonial-card>
+                    <pato-testimonial-card></pato-testimonial-card>
+                    <pato-testimonial-card></pato-testimonial-card>
+                    <pato-testimonial-card></pato-testimonial-card>
+                    <pato-testimonial-card></pato-testimonial-card>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            #contacts-section {
+                min-height: 47.83125rem;
+                padding-top: 1rem;
+                background-color: var(--bg-dark);
+            }
+
+            #contacts-section ul,
+            #contacts-section li {
+                list-style: none;
+                font-size: 1.25rem;
+            }
+
+            #contacts-section li {
+                display: flex;
+                flex-direction: row-reverse;
+                gap: 1rem;
+            }
+
+            #contacts-section form {
+                width: 100%;
+                height: 25rem;
+                background-color: var(--bg);
+                border-radius: var(--card-radius);
+                padding: 1rem 2rem;
+            }
+
+            form pato-floating-input,
+            form pato-floating-text {
+                width: 100%;
+            }
+
+            #contacts-section button {
+                position: static;
+                padding: .5em 2em;
+                width: 100%;
+                height: auto;
+                font-size: 1em;
+                border-radius: var(--button-radius);
+                border: var(--border);
+                border-color: var(--primary-color);
+                background: transparent;
+                color: var(--primary-color);
+                transition: all .3s ease-out;
+
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--primary-color);
+                    color: var(--bg);
+                }
+            }
+
+            @media (min-width: 768px) {
+                #contacts-section form  {
+                    width: 600px;
+                }
+
+                #contacts-section .ul,
+                #contacts-section li {
+                    font-size: 1.5rem;
+                }
+            }
+
+            @media (min-width: 1440px) {
+            }
+        </style>
+        <section id="contacts-section">
+            <div class="section-description">
+                <div class="section-title ibm-plex-serif-thin">Contatos</div>
+                <div>
+                    <div class="text ibm-plex-serif-extralight">Quer Falar Direto Comigo ou Saber Mais Sobre os Treinamentos?</div>
+                </div>
+            </div>
+
+            <div class="contact-container flex col wrap justify-center align-center gap-8">
+                <div>
+                    <ul class="flex row wrap justify-center align-start gap-4">
+                        <li>
+                            <pato-word>
+                                +55 11 95831-0007
+                            </pato-word>
+                            <img src="./assets/svgs/icons/whatsapp-icon.svg" alt="whatsapp"> 
+                        </li>
+                        <li>
+                            <pato-word>
+                                @jesus.eleva
+                            </pato-word>
+                            <img src="./assets/svgs/icons/instagram-icon.svg" alt="instagram"> 
+                        </li>
+                        <li>
+                            <pato-word>
+                                JCEleva
+                            </pato-word>
+                            <img src="./assets/svgs/icons/youtube-icon.svg" alt="youtube">
+                        </li>
+                        <li>
+                            <pato-word>
+                                [EMAIL_ADDRESS]
+                            </pato-word>
+                            <img src="./assets/svgs/icons/email-icon.svg" alt="email">
+                        </li>
+                        <li>
+                            <pato-word>
+                                JesusEleva
+                            </pato-word>
+                            <img src="" alt="linkedin">
+                        </li>
+                    </ul>
+                </div>
+                <form class="flex justify-center align-center col gap-8">
+                    <pato-floating-input label="Seu Nome"></pato-floating-input>
+                    <pato-floating-input label="Seu Email"></pato-floating-input>
+                    <pato-floating-input label="Seu Telefone"></pato-floating-input>
+                    <pato-floating-text label="Descreva Seu Problema"></pato-floating-text>
+                    <button class="cta">Enviar</button>
+                </form>
+            </div>
+
+        </section>
+    </main>
+
+    <style>
+        footer {
+            margin: 10rem 0 0;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            min-height: 44.56rem;
+            background-color: var(--primary-color);
+            color: var(--bg-dark);
+        }
+
+        footer .logo {
+            position: absolute;
+            top: 0;
+            left: -3rem;
+            width: max-content;
+            height: max-content;
+            z-index: 3;
+        }
+
+        footer #logo-dark-color,
+        footer #triangle-logo-yellow {
+            position: absolute;
+            transform-origin: center;
+            transform: translate(-8rem, 4rem) scale(0.4);
+            pointer-events: none;
+        }
+
+        footer #logo-dark-color {
+            z-index: 2;
+            bottom: -2.125rem;
+            left: -2.125rem;
+        }
+
+        footer #triangle-logo-yellow {
+            z-index: 1;
+            left: 0;
+            bottom: 0;
+            transform: translate(-8rem, 4rem) scale(0.6);
+        }
+
+        footer h2 {
+            border-bottom: 5px solid var(--bg-dark);
+            width: 100%;
+            font-size: 2.25rem;
+        }
+
+        footer ul, footer li {
+            list-style: none;
+            font-size: 1.25rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        footer li {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        footer pato-word::part(under) {
+            background-color: var(--bg-dark);
+        }
+
+        footer pato-word {
+            color: var(--bg-dark);
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                margin: 10rem 0 0;
+            }
+
+            footer .container {
+                gap: 4rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            footer .logo-name {
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: url("./assets/svgs/logo-name.svg");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 30rem;
+                height: 30rem;
+                pointer-events: none;
+            }
+            
+            footer #logo-dark-color {
+                z-index: 2;
+                bottom: -2rem;
+                left: -4.05rem;
+            }
+
+
+            footer #logo-dark-color {
+                transform: translate(-3rem, -1rem) scale(0.8);
+            }
+
+            footer #triangle-logo-yellow {
+                transform: translate(-3rem, -1rem) scale(1.2);
+            }
+
+        }
+
+        @media (min-width: 1440px) {
+            footer .logo-name {
+                top: 5rem;
+                right: 10rem;
+                transform: scale(1.5);
+            }
+        }
+
+    </style>
+    <footer>
+        <div class="logo">
+            <img id="triangle-logo-yellow" src="./assets/svgs/triangle-solid-bg-yellow.svg" alt="triangle">
+            <img id="logo-dark-color" src="./assets/svgs/logo-solid-dark-color.svg" alt="logo">
+        </div>
+        <div class="container flex row wrap justify-start align-start gap-4">
+            <div>
+                <h2 class="ibm-plex-serif-extralight">Contatos</h2>
+                <ul class="ibm-plex-serif-thin flex col gap-4">
+                    <li>
+                        <img src="./assets/svgs/icons/whatsapp-icon.svg" alt="whatsapp"> 
+                        <pato-word>
+                            +55 11 95831-0007
+                        </pato-word>
+                    </li>
+                    <li>
+                        <img src="./assets/svgs/icons/instagram-icon.svg" alt="instagram"> 
+                        <pato-word>
+                            @jesus.eleva
+                        </pato-word>
+                    </li>
+                    <li>
+                        <img src="./assets/svgs/icons/youtube-icon.svg" alt="youtube">
+                        <pato-word>
+                            JCEleva
+                        </pato-word>
+                    </li>
+                    <li>
+                        <img src="./assets/svgs/icons/email-icon.svg" alt="email">
+                        <pato-word>
+                            [EMAIL_ADDRESS]
+                        </pato-word>
+                    </li>
+                    <li>
+                        <img src="" alt="linkedin">
+                        <pato-word>
+                            JesusEleva
+                        </pato-word>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="ibm-plex-serif-extralight">Página</h2>
+                <ul class="ibm-plex-serif-thin flex col gap-4">
+                    <li>
+                    <a href="#hero-section">
+                        <pato-word>Inicio</pato-word>
+                    </a>
+                </li>
+                <li>
+                    <a href="#aboutme-section">
+                        <pato-word>Sobre Mim</pato-word>
+                    </a>
+                </li>
+                <li>
+                    <a href="#problem-section">
+                        <pato-word>Problemas</pato-word>
+                    </a>
+                </li>
+                <li>
+                    <a href="#solution-section">
+                        <pato-word>Solução</pato-word>
+                    </a>
+                </li>
+                <li>
+                    <a href="#courses-section">
+                        <pato-word>Cursos</pato-word>
+                    </a>
+                </li>
+                <li>
+                    <a href="#testimonials-section">
+                        <pato-word>Depoimentos</pato-word>
+                    </a>
+                </li>
+                <li>
+                    <a href="#social-contents">
+                        <pato-word>Conteúdos</pato-word>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contacts-section">
+                        <pato-word>Contatos</pato-word>
+                    </a>
+                </li>
+                </ul>
+            </div>
+        </div>
+        <div class="logo-name"></div>
+    </footer>
+</body>
+
+</html>
