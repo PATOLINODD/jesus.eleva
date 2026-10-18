@@ -28,9 +28,39 @@ export class PatoHeaderComponent extends AbstractComponent {
             el.style.zIndex = 999;
         }
 
+        if (sectionNodes[0]) {
+            this.setupSmoothScroll(sectionNodes[0]);
+        }
+        this.setupSmoothScroll(sectionClone);
+
         for(const li of sectionClone.children) {
             li.addEventListener('click', this.startAnimationBind);
         }
+    }
+
+    setupSmoothScroll(container) {
+        if (!container) return;
+        container.addEventListener('click', (event) => {
+            const anchor = event.target.closest('a');
+            if (anchor) {
+                const href = anchor.getAttribute('href');
+                if (href && href.startsWith('#') && href.length > 1) {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        event.preventDefault();
+                        const headerOffset = this.offsetHeight || 0;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = Math.max(0, elementPosition + window.pageYOffset - headerOffset);
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                        history.pushState(null, '', href);
+                    }
+                }
+            }
+        });
     }
 
     getStyles() {
